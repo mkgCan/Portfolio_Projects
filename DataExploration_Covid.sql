@@ -135,6 +135,10 @@ INSERT INTO #PopVsVacTable
 		ORDER BY 2,3;
 SELECT *, (RollingTotalVaccinations/Population)*100 AS PercentagePopulationVaccinated
 FROM #PopVsVacTable;
+--Temporary tables exist only for the session they're created in. 
+--Once data has been added in these tables, they don't update by themselves every time they're accessed. But they've better performance
+--	with a trade-off for outdated data not in sync with the source.
+--Should be used when the query is to be executed for many number of times.
 
 --Creating view to be accessed later for visualizations
 CREATE VIEW RollingTotalVaccinations AS
@@ -148,7 +152,10 @@ CREATE VIEW RollingTotalVaccinations AS
 		--cannot use ORDER BY in views
 SELECT *
 FROM RollingTotalVaccinations;
-
+--A view exists only for a single query. Each time we use the name of a view, its table is recreated from existing data. 
+--Once a view has been created, they update by themselves every time they're accessed. Hence, they can always provide the most updated data
+--	from the source with a trade-off for being less efficient. 
+--Should be used when the query is to be executed for lesser number of times.
 
 	
 
