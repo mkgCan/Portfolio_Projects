@@ -1,3 +1,7 @@
+-----------------------------------------------------------------------------------------
+/* SQL Data Exploration using Covid Data */
+-----------------------------------------------------------------------------------------
+
 --Query the entire table
 SELECT *
 FROM PortfolioProject..CovidDeaths
