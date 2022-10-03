@@ -131,7 +131,7 @@ from PortfolioProject..NashvilleHousing;
 
 -----------------------------------------------------------------------------------------
 
---3. Replace 'Y' and 'N' from SoldAsVacant column with 'Yes' and 'No'
+--4. Replace 'Y' and 'N' from SoldAsVacant column with 'Yes' and 'No'
 
 select DISTINCT(SoldAsVacant), COUNT(SoldAsVacant) as CountValues
 from PortfolioProject..NashvilleHousing
@@ -161,7 +161,7 @@ from PortfolioProject..NashvilleHousing;
 
 -----------------------------------------------------------------------------------------
 
---4. Remove duplicate records
+--5. Remove duplicate records
 
 with RemoveRecCTE as (
 	select *,
@@ -181,7 +181,7 @@ where RowNumber>1;
 
 -----------------------------------------------------------------------------------------
 
---5. Delete unused/irrelevant columns
+--6. Delete unused/irrelevant columns
 
 alter table PortfolioProject..NashvilleHousing
 drop column SaleDate;
